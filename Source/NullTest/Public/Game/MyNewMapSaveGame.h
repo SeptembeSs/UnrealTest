@@ -32,17 +32,17 @@ protected:
 	UPROPERTY(EditAnywhere,Category="Player")
 	float PlayerMaxHealth;
 
-// public:
-	// FORCEINLINE void SetPlayerVector(FVector Vector) { PlayerVector = Vector; }
-	// FORCEINLINE FVector GetPlayerVector() { return PlayerVector; }
-	//
-	// FORCEINLINE void SetPlayerScore(int Value) { PlayerScore = Value; }
-	// FORCEINLINE int GetPlayerScore() { return PlayerScore; }
-	//
-	// FORCEINLINE void SetPlayerCurrentHealth(float Value) { PlayerCurrentHealth = Value; }
-	// FORCEINLINE float GetPlayerCurrentHealth() { return PlayerCurrentHealth; }
-	//
-	// FORCEINLINE void SetPlayerMaxHealth(float Value) { PlayerMaxHealth = Value; }
-	// FORCEINLINE float GetPlayerMaxHealth() { return PlayerMaxHealth; }
+public:
+	FORCEINLINE void SetPlayerVector(FVector Vector) { PlayerVector = Vector; }
+	FORCEINLINE FVector GetPlayerVector() { return PlayerVector; }
+	
+	FORCEINLINE void SetPlayerScore(int Value) { PlayerScore = Value; }
+	FORCEINLINE int GetPlayerScore() { return PlayerScore; }
+	
+	FORCEINLINE void SetPlayerCurrentHealth(float Value) { PlayerCurrentHealth = Value; }
+	FORCEINLINE float GetPlayerCurrentHealth() { return PlayerCurrentHealth; }
+	
+	FORCEINLINE void SetPlayerMaxHealth(float Value) { PlayerMaxHealth = Value; }
+	FORCEINLINE float GetPlayerMaxHealth() { return PlayerMaxHealth; }
 	
 };

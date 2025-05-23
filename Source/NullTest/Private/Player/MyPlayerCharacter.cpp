@@ -210,17 +210,17 @@ void AMyPlayerCharacter::OnPlayerDestroyed(AActor* DestroyedActor)
 	UGameplayStatics::OpenLevel(World,FName(UGameplayStatics::GetCurrentLevelName(World)));
 }
 
-// void AMyPlayerCharacter::PlayerSaveGame()
-// {
-// 	// UMyNewMapSaveGame* SaveGameInstance = UGameplayStatics::CreateSaveGameObject(UMyNewMapSaveGame::StaticClass());
-// 	// UGameplayStatics::SaveGameToSlot(SaveGameInstance, "FirstSaveSlot", 0);
-//
-// 	
-// }
-//
-// void AMyPlayerCharacter::PlayerLoadGame()
-// {
-// }
+void AMyPlayerCharacter::PlayerSaveGame()
+{
+	// UMyNewMapSaveGame* SaveGameInstance = UGameplayStatics::CreateSaveGameObject(UMyNewMapSaveGame::StaticClass());
+	// UGameplayStatics::SaveGameToSlot(SaveGameInstance, "FirstSaveSlot", 0);
+
+	
+}
+
+void AMyPlayerCharacter::PlayerLoadGame()
+{
+}
 
 
 

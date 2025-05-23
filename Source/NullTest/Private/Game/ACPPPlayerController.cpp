@@ -9,6 +9,7 @@
 #include "HUD/RestartWidget.h"
 #include "HUD/ThirdHUD.h"
 #include "Kismet/GameplayStatics.h"
+#include "Player/MyPlayerCharacter.h"
 
 void AACPPPlayerController::BeginPlay()
 {
@@ -134,38 +135,38 @@ void AACPPPlayerController::UpdateScore(int Score)
 		ThirdHUD->UpdateHealthScoreWidget(Score);
 }
 
-// void AACPPPlayerController::LoadGame()
-// {
-// 	SaveOrLoadGame(false);
-// }
-//
-// void AACPPPlayerController::SaveGame()
-// {
-// 	SaveOrLoadGame(true);
-// }
-//
-// void AACPPPlayerController::SaveOrLoadGame(bool IsSave)
-// {
-// 	TArray<AActor*> FoundActors;
-// 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMyPlayerCharacter::StaticClass(), FoundActors);
-// 	if (FoundActors.Num() == 1)
-// 	{
-// 		AMyPlayerCharacter* PlayerCharacter = Cast<AMyPlayerCharacter>(FoundActors[0]);
-// 		if (PlayerCharacter)
-// 		{
-// 			if (IsSave)
-// 			{
-// 				PlayerCharacter->PlayerSaveGame();
-// 			}
-// 			else
-// 			{
-// 				PlayerCharacter->PlayerLoadGame();
-// 			}
-// 			
-// 		}
-// 	}
-// 	else
-// 	{
-// 		UE_LOG(LogTemp, Warning, TEXT("player numder error"));
-// 	}
-// }
+void AACPPPlayerController::LoadGame()
+{
+	SaveOrLoadGame(false);
+}
+
+void AACPPPlayerController::SaveGame()
+{
+	SaveOrLoadGame(true);
+}
+
+void AACPPPlayerController::SaveOrLoadGame(bool IsSave)
+{
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMyPlayerCharacter::StaticClass(), FoundActors);
+	if (FoundActors.Num() == 1)
+	{
+		AMyPlayerCharacter* PlayerCharacter = Cast<AMyPlayerCharacter>(FoundActors[0]);
+		if (PlayerCharacter)
+		{
+			if (IsSave)
+			{
+				PlayerCharacter->PlayerSaveGame();
+			}
+			else
+			{
+				PlayerCharacter->PlayerLoadGame();
+			}
+			
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("player numder error"));
+	}
+}

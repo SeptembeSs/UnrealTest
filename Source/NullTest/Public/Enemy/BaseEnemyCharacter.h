@@ -22,6 +22,10 @@ public:
 	ABaseEnemyCharacter();
 
 protected:
+	
+	FTimerHandle EnemyMoveTimerHandle;
+	void ChangeDistance();
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -37,9 +41,21 @@ protected:
 	virtual void RefreshSeeActor();
 
 public:
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,category="Move")
+	FVector MoveVector;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,category="Move")
+	bool MoveDistance;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,category="Move")
+	float MoveTime;
+	
 	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<ACharacter> TargetCharacter;
 
+	void MoveControl(float distance);
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

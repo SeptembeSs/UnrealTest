@@ -102,11 +102,11 @@ public:
 	FORCEINLINE float GetScore() const { return Score; }
 	void SetScore(int Value);
 
-	// UFUNCTION()
-	// void PlayerSaveGame();
-	//
-	// UFUNCTION()
-	// void PlayerLoadGame();
+	UFUNCTION()
+	void PlayerSaveGame();
+	
+	UFUNCTION()
+	void PlayerLoadGame();
 };
 
 //枚举类

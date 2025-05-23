@@ -59,14 +59,14 @@ public:
 	UFUNCTION()
 	void UpdateScore(int Score);
 
-	// UFUNCTION()
-	// void LoadGame();
-	//
-	// UFUNCTION()
-	// void SaveGame();
-	//
-	// UFUNCTION()
-	// void SaveOrLoadGame(bool IsSave);
+	UFUNCTION()
+	void LoadGame();
+	
+	UFUNCTION()
+	void SaveGame();
+	
+	UFUNCTION()
+	void SaveOrLoadGame(bool IsSave);
 
 private:
 	UPROPERTY()

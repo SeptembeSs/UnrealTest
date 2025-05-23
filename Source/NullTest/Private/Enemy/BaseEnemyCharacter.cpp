@@ -43,9 +43,10 @@ void ABaseEnemyCharacter::BeginPlay()
 	TargetCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
 
 	LookComponent->SetTargetActor(TargetCharacter);
+
+	//游荡计时
+	GetWorldTimerManager().SetTimer(EnemyMoveTimerHandle, this, &ABaseEnemyCharacter::ChangeDistance,MoveTime,true,MoveTime);
 }
-
-
 
 // Called every frame
 void ABaseEnemyCharacter::Tick(float DeltaTime)
@@ -54,6 +55,27 @@ void ABaseEnemyCharacter::Tick(float DeltaTime)
 
 	RefreshSeeActor();
 
+	MoveControl(50);
+}
+
+void ABaseEnemyCharacter::ChangeDistance()
+{
+	MoveDistance = !MoveDistance;
+}
+
+void ABaseEnemyCharacter::MoveControl(float MoveSpeed)
+{
+	FVector TrueMoveVector;
+	float DeltaTime = GetWorld()->GetDeltaSeconds();
+	if (MoveDistance)
+	{
+		TrueMoveVector = MoveVector * MoveSpeed * DeltaTime;
+	}
+	else
+	{
+		TrueMoveVector = - MoveVector * MoveSpeed * DeltaTime;
+	}
+	AddActorWorldOffset(TrueMoveVector);
 }
 
 void ABaseEnemyCharacter::RefreshSeeActor()
